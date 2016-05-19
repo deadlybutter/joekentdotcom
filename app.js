@@ -22,15 +22,8 @@ app.use(sassMiddleware({
 
 app.use(express.static('public'));
 
-var content = require(__dirname + '/content.json').content;
-var stringified = [];
-content.forEach(function(c) {
-  stringified.push(JSON.stringify(c));
-});
-content = stringified;
-
 app.get('/', function (req, res) {
-  res.render('index', {"content": content});
+  res.render('index');
 });
 
 app.listen(process.env.PORT || 5000, function () {
